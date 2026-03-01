@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 90c15d3786919d249ba6ecbe73ac6cc5
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 282788
+  packageName: KayKit - Space Base Bits (for Unity)
+  packageVersion: 1.0.0
+  assetPath: Assets/KayKit/Packs/Bits/KayKit - Space Base Bits (For Unity)/Prefabs/landingpad_small.prefab
+  uploadId: 814526

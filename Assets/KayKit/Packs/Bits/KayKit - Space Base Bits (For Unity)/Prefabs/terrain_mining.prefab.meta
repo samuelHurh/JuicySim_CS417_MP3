@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9248d14cee4b74b408540f2d85f273dc
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 282788
+  packageName: KayKit - Space Base Bits (for Unity)
+  packageVersion: 1.0.0
+  assetPath: Assets/KayKit/Packs/Bits/KayKit - Space Base Bits (For Unity)/Prefabs/terrain_mining.prefab
+  uploadId: 814526

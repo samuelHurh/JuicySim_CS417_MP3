@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 769e3ab56b978fc47a2e9cc20da921b7
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 282788
+  packageName: KayKit - Space Base Bits (for Unity)
+  packageVersion: 1.0.0
+  assetPath: Assets/KayKit/Packs/Bits/KayKit - Space Base Bits (For Unity)/Prefabs/terrain_slope_outer_corner.prefab
+  uploadId: 814526

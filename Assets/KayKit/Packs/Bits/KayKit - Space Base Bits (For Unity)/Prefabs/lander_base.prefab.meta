@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a3da8be510f5c144dac36958be7d18dc
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 282788
+  packageName: KayKit - Space Base Bits (for Unity)
+  packageVersion: 1.0.0
+  assetPath: Assets/KayKit/Packs/Bits/KayKit - Space Base Bits (For Unity)/Prefabs/lander_base.prefab
+  uploadId: 814526
