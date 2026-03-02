@@ -36,4 +36,8 @@ public class CartManager : MonoBehaviour
         myTextDisplay.text = currResourceAmt.ToString();
         return toDropOff;
     }
+    public int GetCurrentResources()
+    {
+        return currResourceAmt;
+    }
 }
