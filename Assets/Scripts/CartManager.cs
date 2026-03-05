@@ -41,4 +41,17 @@ public class CartManager : MonoBehaviour
     {
         return currResourceAmt;
     }
+
+
+    public void IncreaseCapacity(int amt)
+    {
+        if(currResourceAmt >= amt){
+            maxResourceCapacity += amt;
+            currResourceAmt -= amt;
+        }
+        else
+        {
+            Debug.Log("broke");
+        }
+    }
 }
