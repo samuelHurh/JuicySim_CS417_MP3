@@ -11,39 +11,63 @@ public class GeneratorManager : MonoBehaviour
     public int resourceIncrementSize;
 
     [SerializeField] private CartManager cmRef;
+    [SerializeField] private GameObject cartRef;
     [SerializeField] private TextMeshProUGUI myText;
+    [SerializeField] private CartProximityChecker cpcRef;
     
+    private float resourceTimer;
+    private bool generatorEffective;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         myResourceCount = 0;
-        StartCoroutine(AutoIncrementResources());
+        generatorEffective = false;
     }
 
-    // // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
-
-    public void OnCartDetected()
+    // Update is called once per frame
+    void Update()
     {
-        myResourceCount = cmRef.TryAddResources(myResourceCount);
-        myText.text = myResourceCount.ToString();
-    }
+        if (!generatorEffective) return;
+        //Euler integration stuff if they care to look in the code
+        resourceTimer += Time.deltaTime;
 
-
-
-    public IEnumerator AutoIncrementResources()
-    {
-        while(true)
+        while (resourceTimer >= resourceRate)
         {
-            yield return new WaitForSeconds(resourceRate);
+            resourceTimer -= resourceRate;
+
             myResourceCount += resourceIncrementSize;
             myText.text = myResourceCount.ToString();
         }
         
+    }
 
+    public void OnCartDetected()
+    {
+        if (!generatorEffective) return;
+
+        myResourceCount = cmRef.TryAddResources(myResourceCount);
+        myText.text = myResourceCount.ToString();
+        
+    }
+
+    public void SetCartAndRef(GameObject mainCartRef, CartManager cm)
+    {
+        cmRef = cm;
+        cartRef = mainCartRef;
+    }
+
+
+
+    public void StartResourceGeneration(GameObject cartRef, CartManager cm)
+    {
+        generatorEffective = true;
+        cpcRef.StartPolling(cartRef,cmRef, false);
+
+    }
+    public void HaltResourceGeneration(GameObject cartRef, CartManager cm)
+    {
+        generatorEffective = false;
+        cpcRef.StopPolling();
     }
 }

@@ -13,20 +13,15 @@ public class CartProximityChecker : MonoBehaviour
     public bool isAccumulator;
 
     private bool detectingCart;
+
+    private bool shouldPoll;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         detectingCart = false;
-        StartCoroutine(PollDistance());
+        shouldPoll = false;
     }
-
-    // // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
-    
 
     public IEnumerator PollDistance()
     {
@@ -49,6 +44,10 @@ public class CartProximityChecker : MonoBehaviour
             {
                 StartCoroutine(DetectionCooldown());
             }
+            if (shouldPoll == false)
+            {
+                break;
+            }
         }
     }
 
@@ -56,5 +55,22 @@ public class CartProximityChecker : MonoBehaviour
     {
         yield return new WaitForSeconds(cartDetectionCooldown);
         detectingCart = false;
+    }
+
+    public void StartPolling(GameObject cartRef, CartManager cm, bool isAM)
+    {
+        cmRef = cm;
+        mainCartRef = cartRef;
+        shouldPoll = true;
+        isAccumulator = isAM;
+        StartCoroutine(PollDistance());
+        
+    }
+
+    public void StopPolling()
+    {
+        cmRef = null;
+        mainCartRef = null;
+        shouldPoll = false;
     }
 }
