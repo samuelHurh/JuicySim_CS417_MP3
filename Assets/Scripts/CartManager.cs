@@ -19,6 +19,7 @@ public class CartManager : MonoBehaviour
     void Update()
     {
         
+        UIManager.Instance.SetText("Ore", currResourceAmt.ToString());
     }
 
     public int TryAddResources(int amt)

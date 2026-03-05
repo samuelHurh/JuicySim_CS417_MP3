@@ -9,6 +9,9 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private GameObject generatorPrefab;
     [SerializeField] private Transform generatorSpawnPoint;
 
+    [SerializeField] private TMPro.TextMeshProUGUI generatorCountText;
+    private int generatorCount = 0;
+
 
     public void buyGenerator()
     {
@@ -23,7 +26,19 @@ public class StoreManager : MonoBehaviour
                         generatorSpawnPoint.rotation);
             spawnedGenerator.GetComponent<GeneratorManager>().SetCartAndRef(cartRef, cmRef);
             Debug.Log("Cart Purchased");
+
+            generatorCount += 100;
+            if (generatorCountText != null)
+            {
+                generatorCountText.text = generatorCount.ToString();
+            }
         }
     }
-    
+    private void Start()
+    {
+        if (generatorCountText != null)
+        {
+            generatorCountText.text = generatorCount.ToString();
+        }
+    }
 }
