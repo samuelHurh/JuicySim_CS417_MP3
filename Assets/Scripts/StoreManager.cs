@@ -33,7 +33,29 @@ public class StoreManager : MonoBehaviour
     public int resourceIncrementSize;
     [SerializeField] private TMPro.TextMeshProUGUI refinedOreAmountText;
     [SerializeField] private GameObject refindedOreCanvas;
-    [SerializeField] private GameObject refindedOreCanvas_lock;
+    [SerializeField] private GameObject refindedOreCanvas_lock; 
+    [SerializeField] private CartMovement cartMove; 
+
+    [Header("Cart Speed Boost")]
+    [SerializeField] private int speedBoostOreCost = 50;
+    [SerializeField] private float speedBoostMultiplier = 2f;
+    [SerializeField] private float speedBoostDuration = 30f;
+ 
+    public void BuyCartSpeedBoost()
+    {
+        if (cmRef.GetCurrentResources() < speedBoostOreCost)
+        {
+            Debug.Log("Not enough normal ore for speed boost.");
+            return;
+        }
+        cmRef.TryAddResources(-speedBoostOreCost); 
+        if (cartMove != null)
+        {
+            cartMove.IncreaseSpeedTemporarily(speedBoostDuration);
+            Debug.Log($"Cart speed boosted for {speedBoostDuration} seconds.");
+        }
+    }
+
 
     public void buyGenerator()
     {

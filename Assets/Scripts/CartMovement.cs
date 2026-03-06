@@ -18,7 +18,10 @@ public class CartMovement : MonoBehaviour
 
     float[] cumulative;   // cumulative distances for each sample
     float totalLength;
-    float distance;
+    float distance; 
+    float speedMultiplier = 1f;
+    float speedBoostEndTime = 0f;
+    public GameObject boostIndicator;
 
     void Awake()
     {
@@ -35,9 +38,18 @@ public class CartMovement : MonoBehaviour
 
     void Update()
     {
-        if (!spline || cumulative == null || totalLength <= 0f) return;
 
-        distance += speedMps * Time.deltaTime;
+        if (!spline || cumulative == null || totalLength <= 0f) return;
+ 
+        bool boosting = speedMultiplier != 1f && Time.time < speedBoostEndTime;
+        if (boostIndicator != null)
+            boostIndicator.SetActive(boosting);
+
+        if (!boosting && speedMultiplier != 1f)
+        {
+            speedMultiplier = 1f;
+        }
+        distance += speedMps * speedMultiplier * Time.deltaTime;
 
         if (closedLoop)
         {
@@ -103,4 +115,10 @@ public class CartMovement : MonoBehaviour
         float t1 = (float)i / samplesPerLoop;
         return Mathf.Lerp(t0, t1, alpha);
     }
+ 
+        public void IncreaseSpeedTemporarily(float duration)
+        {
+            speedMultiplier = 2f;
+            speedBoostEndTime = Time.time + duration;
+        }
 }
