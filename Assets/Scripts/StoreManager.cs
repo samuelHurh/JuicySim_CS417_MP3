@@ -13,6 +13,7 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private Transform generatorSpawnPoint;
 
     [SerializeField] private TMPro.TextMeshProUGUI generatorCountText;
+    [SerializeField] private TMPro.TextMeshProUGUI generatorCostText;
     private int generatorCount = 0;
 
     [Header("Refining Machine")]
@@ -21,10 +22,14 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI refiningMachineAmountText;
     [SerializeField] private int refiningMachineCost;
     [SerializeField] private TMPro.TextMeshProUGUI refiningMachineCostText;
+    [SerializeField] private GameObject refiningMachineCanvas;
+    [SerializeField] private GameObject refiningMachineCanvas_lock;
 
     [Header("Refined Ore")]
     [SerializeField] private int refinedOreAmount = 0;
     [SerializeField] private TMPro.TextMeshProUGUI refinedOreAmountText;
+    [SerializeField] private GameObject refindedOreCanvas;
+    [SerializeField] private GameObject refindedOreCanvas_lock;
 
     public void buyGenerator()
     {
@@ -40,7 +45,12 @@ public class StoreManager : MonoBehaviour
             spawnedGenerator.GetComponent<GeneratorManager>().SetCartAndRef(cartRef, cmRef);
             Debug.Log("Cart Purchased");
 
-            generatorCount += 100;
+            generatorCost += 100;
+            if (generatorCostText != null)
+            {
+                generatorCostText.text = generatorCost.ToString();
+            }
+            generatorCount += 1;
             if (generatorCountText != null)
             {
                 generatorCountText.text = generatorCount.ToString();
@@ -53,6 +63,12 @@ public class StoreManager : MonoBehaviour
         {
             generatorCountText.text = generatorCount.ToString();
         }
+
+        // Lock refinied ore UI
+        refiningMachineCanvas.SetActive(false);
+        refiningMachineCanvas_lock.SetActive(true);
+        refindedOreCanvas.SetActive(false);
+        refindedOreCanvas_lock.SetActive(true);
     }
 
     // This function convert Ore to Refining Machine (max num of Refining Machine = 4)
@@ -91,6 +107,25 @@ public class StoreManager : MonoBehaviour
         if (refinedOreAmountText != null)
         {
             refinedOreAmountText.text = refinedOreAmount.ToString();
+        }
+    }
+
+    // Unlockable UI
+    public void UnlockUI()
+    {
+        if (800 > cmRef.GetCurrentResources())
+        {
+            Debug.Log("Can't unlock UI");
+        }
+        else
+        {
+            cmRef.TryAddResources(-800);
+            // Show Refining Machine Option
+            refiningMachineCanvas.SetActive(true);
+            refiningMachineCanvas_lock.SetActive(false);
+            refindedOreCanvas.SetActive(true);
+            refindedOreCanvas_lock.SetActive(false);
+
         }
     }
 }
