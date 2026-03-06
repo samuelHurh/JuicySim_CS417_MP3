@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class StoreManager : MonoBehaviour
 {
@@ -41,6 +43,11 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private float speedBoostMultiplier = 2f;
     [SerializeField] private float speedBoostDuration = 30f;
  
+    private bool generatorInUpgrader;
+    private GeneratorManager generatorToUpgrade;
+    private float upgradeCost = 200f;
+    [SerializeField] XRSocketInteractor upgradeSocket;
+
     public void BuyCartSpeedBoost()
     {
         if (cmRef.GetCurrentResources() < speedBoostOreCost)
@@ -54,6 +61,49 @@ public class StoreManager : MonoBehaviour
             cartMove.IncreaseSpeedTemporarily(speedBoostDuration);
             Debug.Log($"Cart speed boosted for {speedBoostDuration} seconds.");
         }
+    }
+
+    public void GeneratorPlacedInUpgrader()
+    {
+        generatorInUpgrader = true;
+        var insertedObject = upgradeSocket.GetOldestInteractableSelected();
+        var insertedGO = ((MonoBehaviour)insertedObject).gameObject;
+
+        if (insertedGO.TryGetComponent<GeneratorManager>(out var gm))
+        {
+            generatorToUpgrade = gm;
+        }
+        else
+        {
+            Debug.LogWarning($"Socketed object '{insertedGO.name}' has no GeneratorManager.");
+        }
+    }
+
+    public void GeneratorRemovedFromUpgrader()
+    {
+        generatorInUpgrader = false;
+    }
+
+    public void TryUpgradeGenerator()
+    {
+        // Detect if generator is placed
+        if (!generatorInUpgrader)
+        {
+            Debug.Log("No generator to upgrader");
+            return;
+        }
+        // Check if adequate ore
+        if (cmRef.GetCurrentResources() >= upgradeCost)
+        {
+            cmRef.TryAddResources(-(int)upgradeCost);
+            generatorToUpgrade.UpgradeGenerator();
+        } else
+        {
+            Debug.Log("Insufficient upgrade materials");
+        }
+        
+        // Call Generator for isupgraded check, change material, upgrade rate
+
     }
 
 
@@ -71,7 +121,7 @@ public class StoreManager : MonoBehaviour
             spawnedGenerator.GetComponent<GeneratorManager>().SetCartAndRef(cartRef, cmRef);
             Debug.Log("Cart Purchased");
 
-            generatorCost += 100;
+            generatorCost *= 2;
             if (generatorCostText != null)
             {
                 generatorCostText.text = generatorCost.ToString();

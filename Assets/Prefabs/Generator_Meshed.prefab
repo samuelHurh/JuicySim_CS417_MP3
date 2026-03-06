@@ -374,6 +374,7 @@ MonoBehaviour:
   cartRef: {fileID: 0}
   myText: {fileID: 6578858359033690035}
   cpcRef: {fileID: 7613515288768226955}
+  upgradedMaterial: {fileID: 2100000, guid: 38bc2ce866586b04d8f93ec95a15a6ee, type: 2}
 --- !u!114 &7613515288768226955
 MonoBehaviour:
   m_ObjectHideFlags: 0

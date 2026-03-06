@@ -7,7 +7,7 @@ public class SurpriseSurge : MonoBehaviour
     private GeneratorManager[] generators;
 
     [Header("Surge Settings")]
-    [SerializeField] private float surgeRate = 0.1f;
+    [SerializeField] private float surgeRate = 0.25f;
     [SerializeField] private float surgeDuration = 5f;
 
     [Header("Random Spawn Timing")]
@@ -91,7 +91,7 @@ public class SurpriseSurge : MonoBehaviour
 
         foreach (GeneratorManager g in generators)
         {
-            g.IncreaseResourceRate(-surgeRate);
+            g.IncreaseResourceRate(1f/surgeRate);
         }
 
         Debug.Log("Surprise Surge ended!");

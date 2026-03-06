@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Sandbox.unity
+    guid: 0ab0e884db6b9044894d22745dbc8b55
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8e1f05a7c08d089499ddca285978c558, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0c82b91da8ea89645a1b2a28d4bed72e, type: 2}
-    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 99dd53c00f9d10441b5543c1929f2953, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 24402dd712807c24eba3946fd2e7c12f, type: 2}
   m_UseUCBPForAssetBundles: 0

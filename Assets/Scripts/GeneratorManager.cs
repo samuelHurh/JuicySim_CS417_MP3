@@ -15,6 +15,8 @@ public class GeneratorManager : MonoBehaviour
     [SerializeField] private GameObject cartRef;
     [SerializeField] private TextMeshProUGUI myText;
     [SerializeField] private CartProximityChecker cpcRef;
+
+    [SerializeField] private Material upgradedMaterial;
     
     private float resourceTimer;
     private bool generatorEffective;
@@ -77,8 +79,14 @@ public class GeneratorManager : MonoBehaviour
         return resourceRate;
     }
 
-    public void IncreaseResourceRate(float incRate)
+    public void IncreaseResourceRate(float surgeRate)
     {
-        resourceRate -= incRate;
+        resourceRate *= surgeRate;
+    }
+
+    public void UpgradeGenerator()
+    {
+        this.transform.gameObject.GetComponent<Renderer>().material = upgradedMaterial;
+        resourceRate *= 0.5f;
     }
 }
