@@ -20,13 +20,17 @@ public class StoreManager : MonoBehaviour
     public List<GameObject> refiningMachines;
     private int numRefiningMachines = 0;
     [SerializeField] private TMPro.TextMeshProUGUI refiningMachineAmountText;
-    [SerializeField] private int refiningMachineCost;
+    [SerializeField] private int refiningMachineCost = 100;
     [SerializeField] private TMPro.TextMeshProUGUI refiningMachineCostText;
     [SerializeField] private GameObject refiningMachineCanvas;
     [SerializeField] private GameObject refiningMachineCanvas_lock;
 
     [Header("Refined Ore")]
-    [SerializeField] private int refinedOreAmount = 0;
+    private bool isRefinedOreUnlocked = false;
+    public int refinedOreAmount = 0;
+    public float resourceRate;
+    private float resourceTimer;
+    public int resourceIncrementSize;
     [SerializeField] private TMPro.TextMeshProUGUI refinedOreAmountText;
     [SerializeField] private GameObject refindedOreCanvas;
     [SerializeField] private GameObject refindedOreCanvas_lock;
@@ -71,16 +75,34 @@ public class StoreManager : MonoBehaviour
         refindedOreCanvas_lock.SetActive(true);
     }
 
-    // This function convert Ore to Refining Machine (max num of Refining Machine = 4)
+    void Update()
+    {
+        // Use Euler integrated over timesteps to increase refined ore amount
+        if (isRefinedOreUnlocked)
+        {
+            resourceTimer += Time.deltaTime;
+
+            while (resourceTimer >= resourceRate)
+            {
+                resourceTimer -= resourceRate;
+
+                refinedOreAmount += resourceIncrementSize;
+                refinedOreAmountText.text = refinedOreAmount.ToString();
+            }
+        }
+
+    }
+
+    // This function purchase Refining Machine using Refined Ore (max num of Refining Machine = 4)
     public void BuyRefiningMachine()
     {
-        if (refiningMachineCost > cmRef.GetCurrentResources() || numRefiningMachines >= 4)
+        if (refiningMachineCost > refinedOreAmount || numRefiningMachines >= 4)
         {
             Debug.Log("Can't Buy Refining Machine");
         }
         else
         {
-            cmRef.TryAddResources(-refiningMachineCost);
+            refinedOreAmount -= refiningMachineCost;
             refiningMachines[numRefiningMachines].SetActive(true);
             numRefiningMachines++;
 
@@ -90,7 +112,7 @@ public class StoreManager : MonoBehaviour
                 refiningMachineAmountText.text = numRefiningMachines.ToString();
             }
             // Update Price Tag
-            refiningMachineCost += 100;
+            refiningMachineCost *= 2;
             if (refiningMachineCostText != null)
             {
                 refiningMachineCostText.text = refiningMachineCost.ToString();
@@ -110,7 +132,7 @@ public class StoreManager : MonoBehaviour
         }
     }
 
-    // Unlockable UI
+    // Unlockable UI: Use Ore
     public void UnlockUI()
     {
         if (800 > cmRef.GetCurrentResources())
@@ -119,6 +141,7 @@ public class StoreManager : MonoBehaviour
         }
         else
         {
+            isRefinedOreUnlocked = true;
             cmRef.TryAddResources(-800);
             // Show Refining Machine Option
             refiningMachineCanvas.SetActive(true);
@@ -128,4 +151,6 @@ public class StoreManager : MonoBehaviour
 
         }
     }
+
+
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 
 public class GeneratorManager : MonoBehaviour
@@ -69,5 +70,15 @@ public class GeneratorManager : MonoBehaviour
     {
         generatorEffective = false;
         cpcRef.StopPolling();
+    }
+
+    public float GetResourceRate()
+    {
+        return resourceRate;
+    }
+
+    public void IncreaseResourceRate(float incRate)
+    {
+        resourceRate -= incRate;
     }
 }
