@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class StoreManager : MonoBehaviour
 {
@@ -42,6 +43,9 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private int speedBoostOreCost = 50;
     [SerializeField] private float speedBoostMultiplier = 2f;
     [SerializeField] private float speedBoostDuration = 30f;
+
+    [SerializeField] private XRBaseInputInteractor left_controller;
+    [SerializeField] private XRBaseInputInteractor  right_controller;
  
     private bool generatorInUpgrader;
     private GeneratorManager generatorToUpgrade;
@@ -59,6 +63,8 @@ public class StoreManager : MonoBehaviour
         if (cartMove != null)
         {
             cartMove.IncreaseSpeedTemporarily(speedBoostDuration);
+            left_controller.SendHapticImpulse(1f, speedBoostDuration);
+            right_controller.SendHapticImpulse(1f, speedBoostDuration);
             Debug.Log($"Cart speed boosted for {speedBoostDuration} seconds.");
         }
     }

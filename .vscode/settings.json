@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "MinimalSim_MP2.slnx"
+    "dotnet.defaultSolution": "JuicySim_CS417_MP3.slnx"
 }

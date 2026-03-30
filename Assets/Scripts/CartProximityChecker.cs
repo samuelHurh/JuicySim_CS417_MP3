@@ -9,6 +9,7 @@ public class CartProximityChecker : MonoBehaviour
     [SerializeField] GameObject mainCartRef;
     [SerializeField] float cartDetectDist;
     [SerializeField] float cartDetectionCooldown;
+    [SerializeField] ParticleSystem myPS;
 
     public bool isAccumulator;
 
@@ -21,6 +22,7 @@ public class CartProximityChecker : MonoBehaviour
     {
         detectingCart = false;
         shouldPoll = false;
+        myPS.Stop();
     }
 
     public IEnumerator PollDistance()
@@ -38,6 +40,7 @@ public class CartProximityChecker : MonoBehaviour
                 } else
                 {
                     gmRef.OnCartDetected();
+                    StartCoroutine(FireParticlesOnResourceCollection());
                 }
                 
             } else
@@ -72,5 +75,12 @@ public class CartProximityChecker : MonoBehaviour
         cmRef = null;
         mainCartRef = null;
         shouldPoll = false;
+    }
+
+    public IEnumerator FireParticlesOnResourceCollection()
+    {
+        myPS.Play();
+        yield return new WaitForSeconds(0.5f);
+        myPS.Stop();
     }
 }
