@@ -2526,6 +2526,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c17d27619c4e99849b49582e5b86dcf5, type: 2}
     - target: {fileID: 919132149155446097, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
       propertyPath: m_Name
       value: terrain_slope (14)
@@ -18714,11 +18718,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 496a011f7b39ef74bac08b2ba73593de, type: 3}
   m_PrefabInstance: {fileID: 1668626860}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &751794347 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
-  m_PrefabInstance: {fileID: 1562123954}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &754416545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19046,6 +19045,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: de41e2091ae6dc445917d937e7adc289, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c17d27619c4e99849b49582e5b86dcf5, type: 2}
     - target: {fileID: 919132149155446097, guid: de41e2091ae6dc445917d937e7adc289, type: 3}
       propertyPath: m_Name
       value: terrain_slope_outer_corner (2)
@@ -25394,6 +25397,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 67c473982dd87794f8064d5a45cdfa06, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f0df9976063f45d42ab21657b0e8b976, type: 2}
     - target: {fileID: 919132149155446097, guid: 67c473982dd87794f8064d5a45cdfa06, type: 3}
       propertyPath: m_Name
       value: lander_A (1)
@@ -26078,6 +26085,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 496a011f7b39ef74bac08b2ba73593de, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c17d27619c4e99849b49582e5b86dcf5, type: 2}
     - target: {fileID: 919132149155446097, guid: 496a011f7b39ef74bac08b2ba73593de, type: 3}
       propertyPath: m_Name
       value: terrain_low (3)
@@ -28432,6 +28443,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 496a011f7b39ef74bac08b2ba73593de, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c17d27619c4e99849b49582e5b86dcf5, type: 2}
     - target: {fileID: 919132149155446097, guid: 496a011f7b39ef74bac08b2ba73593de, type: 3}
       propertyPath: m_Name
       value: terrain_low (13)
@@ -32154,6 +32169,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c17d27619c4e99849b49582e5b86dcf5, type: 2}
     - target: {fileID: 919132149155446097, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
       propertyPath: m_Name
       value: terrain_slope (11)
@@ -36425,63 +36444,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
       propertyPath: m_Name
       value: terrain_slope (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
---- !u!1001 &1562123954
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1985931537}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.000000104308114
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
-      propertyPath: m_Name
-      value: terrain_slope (18)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46685,10 +46647,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9b8fd5b78b0955d48bb2c884747e9afd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f0df9976063f45d42ab21657b0e8b976, type: 2}
     - target: {fileID: 919132149155446097, guid: 9b8fd5b78b0955d48bb2c884747e9afd, type: 3}
       propertyPath: m_Name
       value: windturbine_low
       objectReference: {fileID: 0}
+    - target: {fileID: 9141536941480505926, guid: 9b8fd5b78b0955d48bb2c884747e9afd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f0df9976063f45d42ab21657b0e8b976, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -49029,6 +48999,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 496a011f7b39ef74bac08b2ba73593de, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c17d27619c4e99849b49582e5b86dcf5, type: 2}
     - target: {fileID: 919132149155446097, guid: 496a011f7b39ef74bac08b2ba73593de, type: 3}
       propertyPath: m_Name
       value: terrain_low (92)
@@ -50020,7 +49994,6 @@ Transform:
   - {fileID: 1341186162}
   - {fileID: 1567721364}
   - {fileID: 1108397020}
-  - {fileID: 751794347}
   - {fileID: 1697576868}
   - {fileID: 1177238193}
   - {fileID: 491683824}
@@ -51602,6 +51575,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c17d27619c4e99849b49582e5b86dcf5, type: 2}
     - target: {fileID: 919132149155446097, guid: 3f0fe2fb0f8bcf64389c542602ba43c5, type: 3}
       propertyPath: m_Name
       value: terrain_slope (16)
