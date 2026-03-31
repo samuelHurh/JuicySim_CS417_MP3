@@ -52,6 +52,9 @@ public class StoreManager : MonoBehaviour
     private float upgradeCost = 200f;
     [SerializeField] XRSocketInteractor upgradeSocket;
 
+    [Header("Audio")]
+    public AudioSource unlockSFX;
+
     public void BuyCartSpeedBoost()
     {
         if (cmRef.GetCurrentResources() < speedBoostOreCost)
@@ -226,7 +229,11 @@ public class StoreManager : MonoBehaviour
             refiningMachineCanvas_lock.SetActive(false);
             refindedOreCanvas.SetActive(true);
             refindedOreCanvas_lock.SetActive(false);
-
+            //Play unlock sound
+            if (unlockSFX)
+            {
+                unlockSFX.Play();
+            }
         }
     }
 
