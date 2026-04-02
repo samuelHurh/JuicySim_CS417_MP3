@@ -27,6 +27,7 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI refiningMachineCostText;
     [SerializeField] private GameObject refiningMachineCanvas;
     [SerializeField] private GameObject refiningMachineCanvas_lock;
+    [SerializeField] private ParticleSystem expCostPS;
 
     [Header("Refined Ore")]
     private bool isRefinedOreUnlocked = false;
@@ -54,6 +55,7 @@ public class StoreManager : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource unlockSFX;
+    public AudioSource powerUpSFX;
 
     public void BuyCartSpeedBoost()
     {
@@ -68,6 +70,10 @@ public class StoreManager : MonoBehaviour
             cartMove.IncreaseSpeedTemporarily(speedBoostDuration);
             left_controller.SendHapticImpulse(1f, speedBoostDuration);
             right_controller.SendHapticImpulse(1f, speedBoostDuration);
+            if (powerUpSFX)
+            {
+                powerUpSFX.Play();
+            }
             Debug.Log($"Cart speed boosted for {speedBoostDuration} seconds.");
         }
     }
@@ -131,6 +137,7 @@ public class StoreManager : MonoBehaviour
             Debug.Log("Cart Purchased");
 
             generatorCost *= 2;
+            expCostPS.Play();
             if (generatorCostText != null)
             {
                 generatorCostText.text = generatorCost.ToString();
