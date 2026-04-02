@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 1831203211805654342}
   - component: {fileID: 4003994212611098878}
   - component: {fileID: 5026733082503778290}
+  - component: {fileID: -6310455425465933612}
   m_Layer: 0
   m_Name: Generator_Meshed
   m_TagString: Untagged
@@ -5356,3 +5357,16 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!114 &-6310455425465933612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388199592743916795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e502affba7d364483034bcfc2e1b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SmoothSnapping
+  k: 8

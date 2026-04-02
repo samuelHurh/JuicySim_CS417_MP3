@@ -78,6 +78,8 @@ public class SurpriseSurge : MonoBehaviour
 
         surgeVisible = false;
         StopBlink();
+        if (robot != null)
+            robot.SetSurprised(false);
         TriggerSurge();
     }
 
