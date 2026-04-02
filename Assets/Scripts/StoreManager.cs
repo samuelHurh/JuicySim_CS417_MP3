@@ -234,6 +234,10 @@ public class StoreManager : MonoBehaviour
             {
                 unlockSFX.Play();
             }
+
+            // haptics
+            left_controller.SendHapticImpulse(1f, 1f);
+            right_controller.SendHapticImpulse(1f, 1f);
         }
     }
 
