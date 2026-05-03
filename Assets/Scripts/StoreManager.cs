@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
-using UnityEngine.XR.Interaction.Toolkit;
 
 public class StoreManager : MonoBehaviour
 {
@@ -27,7 +26,6 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI refiningMachineCostText;
     [SerializeField] private GameObject refiningMachineCanvas;
     [SerializeField] private GameObject refiningMachineCanvas_lock;
-    [SerializeField] private ParticleSystem expCostPS;
 
     [Header("Refined Ore")]
     private bool isRefinedOreUnlocked = false;
@@ -44,18 +42,11 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private int speedBoostOreCost = 50;
     [SerializeField] private float speedBoostMultiplier = 2f;
     [SerializeField] private float speedBoostDuration = 30f;
-
-    [SerializeField] private XRBaseInputInteractor left_controller;
-    [SerializeField] private XRBaseInputInteractor  right_controller;
  
     private bool generatorInUpgrader;
     private GeneratorManager generatorToUpgrade;
     private float upgradeCost = 200f;
     [SerializeField] XRSocketInteractor upgradeSocket;
-
-    [Header("Audio")]
-    public AudioSource unlockSFX;
-    public AudioSource powerUpSFX;
 
     public void BuyCartSpeedBoost()
     {
@@ -68,12 +59,6 @@ public class StoreManager : MonoBehaviour
         if (cartMove != null)
         {
             cartMove.IncreaseSpeedTemporarily(speedBoostDuration);
-            left_controller.SendHapticImpulse(1f, speedBoostDuration);
-            right_controller.SendHapticImpulse(1f, speedBoostDuration);
-            if (powerUpSFX)
-            {
-                powerUpSFX.Play();
-            }
             Debug.Log($"Cart speed boosted for {speedBoostDuration} seconds.");
         }
     }
@@ -137,7 +122,6 @@ public class StoreManager : MonoBehaviour
             Debug.Log("Cart Purchased");
 
             generatorCost *= 2;
-            expCostPS.Play();
             if (generatorCostText != null)
             {
                 generatorCostText.text = generatorCost.ToString();
@@ -236,15 +220,7 @@ public class StoreManager : MonoBehaviour
             refiningMachineCanvas_lock.SetActive(false);
             refindedOreCanvas.SetActive(true);
             refindedOreCanvas_lock.SetActive(false);
-            //Play unlock sound
-            if (unlockSFX)
-            {
-                unlockSFX.Play();
-            }
 
-            // haptics
-            left_controller.SendHapticImpulse(1f, 1f);
-            right_controller.SendHapticImpulse(1f, 1f);
         }
     }
 

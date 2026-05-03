@@ -12,8 +12,6 @@ public class Timer : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private StoreManager storeManager;
-    [SerializeField] private RefinedOreMachineFeedback myFeedback;
-    [SerializeField] private ParticleSystem expCostPS;
 
     private float timer;
     private bool isReady = false;
@@ -53,7 +51,6 @@ public class Timer : MonoBehaviour
         if (storeManager != null)
         {
             storeManager.CollectRefinedOre(rewardAmount);
-            myFeedback.FireParticles();
         }
 
         Debug.Log("Collected " + rewardAmount + " resource.");

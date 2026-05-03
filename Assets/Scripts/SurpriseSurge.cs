@@ -21,8 +21,6 @@ public class SurpriseSurge : MonoBehaviour
     [SerializeField] private float visibleDuration = 3f;
     [SerializeField] private float originalAlpha = 0.8f;
 
-    public RobotFollow robot;
-
     private bool blinking = false;
     private bool surgeVisible = false;
     private Coroutine blinkRoutine;
@@ -47,10 +45,6 @@ public class SurpriseSurge : MonoBehaviour
     IEnumerator ShowSurgeWindow()
     {
         surgeVisible = true;
-
-        if (robot != null)
-            robot.SetSurprised(true);
-
         StartBlink();
 
         float timer = 0f;
@@ -64,10 +58,6 @@ public class SurpriseSurge : MonoBehaviour
         {
             StopBlink();
             surgeVisible = false;
-
-            if (robot != null)
-                robot.SetSurprised(false);
-
             Debug.Log("Surprise Surge expired.");
         }
     }
@@ -78,8 +68,6 @@ public class SurpriseSurge : MonoBehaviour
 
         surgeVisible = false;
         StopBlink();
-        if (robot != null)
-            robot.SetSurprised(false);
         TriggerSurge();
     }
 

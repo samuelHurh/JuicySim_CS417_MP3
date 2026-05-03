@@ -12,9 +12,6 @@ public class CartManager : MonoBehaviour
     [SerializeField] private int capacityIncreasedAmount = 400;
     [SerializeField] private int capacityIncreasedCost = 200;
     [SerializeField] private TextMeshProUGUI myTextDisplay;
-
-    [SerializeField] private GameObject SFX;
-    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,12 +31,9 @@ public class CartManager : MonoBehaviour
         int toAdd = Math.Min(maxResourceCapacity - currResourceAmt, amt);
         currResourceAmt += toAdd;
         myTextDisplay.text = currResourceAmt.ToString();
-        int remainder = Math.Max(0, amt - toAdd);
-        Debug.Log("Added " + toAdd + " resources to the cart. Current amount: " + currResourceAmt);
-        SFX.SetActive(false);
-        SFX.SetActive(true);
-        return remainder;
+        return Math.Max(0, amt - toAdd);
     }
+
     public int DepositResources()
     {
         int toDropOff = currResourceAmt;
